@@ -23,8 +23,8 @@
 | auther        | string     | null: false                    |
 | content       | text       | null: false                    |
 | genre_id      | integer    | null: false                    |
-| purpose_id    | integer    | null: false                    |
-| user          | references | null: false, foreign_key: true |
+| purpose       | integer    | null: false                    |
+| user          | references | foreign_key: true              |
 
 ### Association
 
