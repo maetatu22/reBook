@@ -29,6 +29,7 @@
 ### Association
 
 - belongs_to :user
+- belongs_to_active_hash :genre
 
 
 ## profiles テーブル
@@ -36,7 +37,7 @@
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | birthday      | date       |                                |
-| gender        | string     |                                |
+| gender        | integer    |                                |
 | fav_genre1_id | integer    |                                |
 | fav_genre2_id | integer    |                                |
 | fav_genre3_id | integer    |                                |
@@ -45,3 +46,4 @@
 ### Association
 
 - belongs_to :user
+- belongs_to_active_hash :genre
