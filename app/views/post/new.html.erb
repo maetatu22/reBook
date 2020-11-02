@@ -1,0 +1,41 @@
+<div class="posts-sell-main">
+  <h2 class="posts-sell-title">本の情報を入力</h2>
+  <%= form_with model: @post, url:new_post_path, local: true do |f| %>
+  <%# ↑URL仮置   %>
+
+  <%# 詳細入力 %>
+  <div class="new-post">
+    <div class="weight-bold-text">
+      タイトル
+    </div>
+    <%= f.text_field :title, class:"posts-text", placeholder:"タイトル（40文字まで)", maxlength:"40" %>
+    <div class="weight-bold-text">
+      作者
+    </div>
+    <%= f.text_field :author, class:"posts-text", placeholder:"作者" ,rows:"1" %>
+    <div class="weight-bold-text">
+      ジャンル
+    </div>
+    <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"posts-text", id:"post-genre"}) %>
+    <div class="weight-bold-text">
+      レビュー/アウトプット
+    </div>
+    <%= f.text_area :other, class:"posts-text", placeholder:"内容（1,000文字まで）" ,rows:"4" ,maxlength:"1000" %>
+    <div class="form-group">
+      <label class="form-text">目的</label>
+      <div class=form-group-purpose>
+        <label class="form-purpose"> レビュー<%= f.radio_button :purpose, :review %> </label>
+        <label class="form-purpose"> アウトプット<%= f.radio_button :purpose, :output %> </label>
+      </div>
+    </div>
+  </div>
+  <%# /詳細入力 %>
+
+  <%# 下部ボタン %>
+  <div class="sell-btn-contents">
+    <%= f.submit "投稿する", class:"sell-btn"%>
+    <%=link_to 'もどる', root_path, class:"back-btn" %>
+  </div>
+  <%# /下部ボタン %>
+  <% end %>
+</div>
