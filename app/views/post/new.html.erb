@@ -1,7 +1,6 @@
 <div class="posts-sell-main">
   <h2 class="posts-sell-title">本の情報を入力</h2>
-  <%= form_with model: @post, url:new_post_path, local: true do |f| %>
-  <%# ↑URL仮置   %>
+  <%= form_with model: @post, url:post_index_path, local: true do |f| %>
 
   <%# 詳細入力 %>
   <div class="new-post">
@@ -10,9 +9,9 @@
     </div>
     <%= f.text_field :title, class:"posts-text", placeholder:"タイトル（40文字まで)", maxlength:"40" %>
     <div class="weight-bold-text">
-      作者
+      作者名
     </div>
-    <%= f.text_field :author, class:"posts-text", placeholder:"作者" ,rows:"1" %>
+    <%= f.text_field :author, class:"posts-text",rows:"1" %>
     <div class="weight-bold-text">
       ジャンル
     </div>
@@ -32,8 +31,8 @@
   <%# /詳細入力 %>
 
   <%# 下部ボタン %>
-  <div class="sell-btn-contents">
-    <%= f.submit "投稿する", class:"sell-btn"%>
+  <div class="post-btn-contents">
+    <%= f.submit "投稿する", class:"post-btn"%>
     <%=link_to 'もどる', root_path, class:"back-btn" %>
   </div>
   <%# /下部ボタン %>
