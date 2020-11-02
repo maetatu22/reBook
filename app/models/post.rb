@@ -4,7 +4,7 @@ class Post < ApplicationRecord
 
   with_options presence: true do
     validates :title
-    validates :auther
+    validates :author
     validates :content
     validates :genre_id, numericality: { other_than: 1 }
     validates :purpose

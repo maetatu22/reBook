@@ -20,7 +20,7 @@
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | title         | string     | null: false                    |
-| auther        | string     | null: false                    |
+| author        | string     | null: false                    |
 | content       | text       | null: false                    |
 | genre_id      | integer    | null: false                    |
 | purpose       | integer    | null: false                    |
