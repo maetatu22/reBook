@@ -1,5 +1,12 @@
+<header>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'%>
+</header>
 
-<%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'%>
-
-<%= link_to "新規投稿", new_post_path %>
-
+<div class="content">
+  <h2>投稿一覧</h2>
+   <%= link_to "新規投稿", new_post_path %> 
+  <% @posts.each do |post| %>
+  
+  <%= post.purpose%>
+  <%end%>
+</div>

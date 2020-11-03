@@ -1,6 +1,6 @@
 <div class="posts-sell-main">
   <h2 class="posts-sell-title">本の情報を入力</h2>
-  <%= form_with model: @post, url:post_index_path, local: true do |f| %>
+  <%= form_with model: @post, url:posts_path, local: true do |f| %>
 
   <%# 詳細入力 %>
   <div class="new-post">
@@ -23,8 +23,8 @@
     <div class="form-group">
       <label class="form-text">目的</label>
       <div class=form-group-purpose>
-        <label class="form-purpose"> レビュー<%= f.radio_button :purpose, :review %> </label>
-        <label class="form-purpose"> アウトプット<%= f.radio_button :purpose, :output %> </label>
+        <label class="form-purpose"> レビュー<%= f.radio_button :purpose, :レビュー %> </label>
+        <label class="form-purpose"> アウトプット<%= f.radio_button :purpose, :アウトプット %> </label>
       </div>
     </div>
   </div>
