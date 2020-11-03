@@ -1,12 +1,29 @@
 <header>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'%>
+  <% if user_signed_in?%>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'%>
+    <%= link_to current_user.nickname, "#"%>
+  <%else%>
+    <%= link_to "ログイン",  new_user_session_path, method: :get%>
+  <%end%>
+  
 </header>
 
 <div class="content">
   <h2>投稿一覧</h2>
-   <%= link_to "新規投稿", new_post_path %> 
+   
   <% @posts.each do |post| %>
-  
-  <%= post.purpose%>
+  <div>
+    <%= post.title%>
+    <%= post.author%>
+  </div>
+  <div>
+    <%= post.genre.name%>
+    <%= post.purpose %>
+    <%= post.user.nickname%>
+  </div>
   <%end%>
+</div>
+
+<div>
+<%= link_to "新規投稿", new_post_path %> 
 </div>
