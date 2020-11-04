@@ -21,9 +21,11 @@
     <%= post.purpose %>
     <%= post.user.nickname%>
   </div>
+  <%= link_to "削除", post_path(post), method: :delete %>
   <%end%>
 </div>
 
 <div>
 <%= link_to "新規投稿", new_post_path %> 
+
 </div>
