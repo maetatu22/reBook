@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   # get 'post/index'
   root to: "posts#index"
 
-  resources :posts
+  resources :posts do
+    resources :profiles, only: [:index, :new, :create, :edit, :update]
+  end
   resources :users, only: [:edit, :update, :show]
-  resources :profiles, only: [:new, :create, :edit, :update]
 end
