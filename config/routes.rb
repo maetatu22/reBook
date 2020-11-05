@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   # get 'post/index'
   root to: "posts#index"
 
-  resources :posts, only: [:index, :new, :create, :destroy]
+  resources :posts, only: [:index, :new, :create, :destroy, :edit, :update]
   resources :users, only: [:edit, :update]
 end

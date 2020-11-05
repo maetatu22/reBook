@@ -1,0 +1,40 @@
+<div class="posts-sell-main">
+  <h2 class="posts-sell-title">本の情報を編集</h2>
+  <%= form_with model: @post, url:post_path, local: true do |f| %>
+
+  <%# 詳細入力 %>
+  <div class="new-post">
+    <div class="weight-bold-text">
+      タイトル
+    </div>
+    <%= f.text_field :title, class:"posts-text", placeholder:"タイトル（40文字まで)", maxlength:"40" %>
+    <div class="weight-bold-text">
+      作者名
+    </div>
+    <%= f.text_field :author, class:"posts-text" %>
+    <div class="weight-bold-text">
+      ジャンル
+    </div>
+    <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"posts-text", id:"post-genre"}) %>
+    <div class="weight-bold-text">
+      レビュー/アウトプット
+    </div>
+    <%= f.text_area :content, class:"posts-text", placeholder:"内容（1,000文字まで）" ,rows:"4" ,maxlength:"1000" %>
+    <div class="form-group">
+      <label class="form-text">目的</label>
+      <div class=form-group-purpose>
+        <label class="form-purpose"> レビュー<%= f.radio_button :purpose, :レビュー %> </label>
+        <label class="form-purpose"> アウトプット<%= f.radio_button :purpose, :アウトプット %> </label>
+      </div>
+    </div>
+  </div>
+  <%# /詳細入力 %>
+
+  <%# 下部ボタン %>
+  <div class="post-btn-contents">
+    <%= f.submit "更新する", class:"post-btn"%>
+    <%=link_to 'もどる', root_path, class:"back-btn" %>
+  </div>
+  <%# /下部ボタン %>
+  <% end %>
+</div>
