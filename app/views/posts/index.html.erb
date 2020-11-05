@@ -21,6 +21,7 @@
     <%= post.purpose %>
     <%= post.user.nickname%>
   </div>
+  <%= link_to '編集', edit_post_path(post), method: :get %>
   <%= link_to "削除", post_path(post), method: :delete %>
   <%end%>
 </div>
