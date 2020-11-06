@@ -1,0 +1,38 @@
+<div class="content-show">
+  <h2 class="title">
+    タイトル：<%= @post.title%>
+  </h2>
+
+  <table class="detail-table">
+    <tbody>
+      <tr>
+        <th class="detail-item">著者</th>
+        <td class="detail-value"><%= @post.author %></td>
+      </tr>
+      <tr>
+        <th class="detail-item">ジャンル</th>
+        <td class="detail-value"><%= @post.genre.name %></td>
+      </tr>
+      <tr>
+        <th class="detail-item">目的</th>
+        <td class="detail-value"><%= @post.purpose %></td>
+      </tr>
+      <tr>
+        <th class="detail-item">投稿者</th>
+        <td class="detail-value"><%= @post.user.nickname %></td>
+      </tr>
+      <tr>
+        <th class="detail-item">レビュー/アウトプット</th>
+        <td class="detail-value"><%= @post.content %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <% if user_signed_in? && current_user.id == @post.user_id %>
+    <%= link_to '編集', edit_post_path(@post.id), method: :get %>or<%= link_to "削除", post_path(@post.id), method: :delete %>
+  <%end%>
+
+  <div class="post-btn-contents">
+    <%=link_to 'もどる', root_path, class:"back-btn" %>
+  </div>
+</div>
