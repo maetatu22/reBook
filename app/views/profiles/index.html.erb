@@ -24,9 +24,9 @@
       </tr>
     </tbody>
   </table>
-  <%= link_to "プロフィールを編集", edit_user_profile_path(:user_id, :profile_id), method: :get %>
+  <%= link_to "プロフィールを編集", edit_user_profile_path(@user.id, @profile.id), method: :get %>
   <% else %>
-  <%= link_to "プロフィールを設定", new_user_profile_path(:user_id, :profile_id) %>
+  <%= link_to "プロフィールを設定", new_user_profile_path(@user.id) %>
   <% end %>
 </div>
 

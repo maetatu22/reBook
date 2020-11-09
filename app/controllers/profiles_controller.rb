@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     if @profile.save
-      redirect_to root_path
+      redirect_to user_profiles_path
     else
       render :new
     end
@@ -24,6 +24,11 @@ class ProfilesController < ApplicationController
   end
 
   def update
+    if @profile.update(profile_params)
+      redirect_to user_profiles_path
+    else
+      render :edit
+    end
   end
 
   private
