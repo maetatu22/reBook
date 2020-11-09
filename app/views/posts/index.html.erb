@@ -2,7 +2,7 @@
   <h1>reBook</h1> 
   <% if user_signed_in?%>
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'%>
-    <%= link_to current_user.nickname, "#"%>
+    <%= link_to "マイページ", user_profiles_path(current_user.id) %>
   <%else%>
     <%= link_to "ログイン",  new_user_session_path, method: :get%>
   <%end%>

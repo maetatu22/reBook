@@ -1,0 +1,49 @@
+<div class="profile-box">
+  <% if @profile != nil %>
+  <table class="detail-table">
+    <tbody>
+      <tr>
+        <th >生年月日</th>
+        <td ><%= @profile.birthday %></td>
+      </tr>
+      <tr>
+        <th >性別</th>
+        <td ><%= @profile.gender %></td>
+      </tr>
+      <tr>
+        <th >好きなジャンル</th>
+        <td ><%= @profile.fav_genre1_id %></td>
+      </tr>
+      <tr>
+        <th >好きなジャンル2</th>
+        <td ><%= @profile.fav_genre2_id %></td>
+      </tr>
+      <tr>
+        <th >好きなジャンル3</th>
+        <td ><%= @profile.fav_genre3_id %></td>
+      </tr>
+    </tbody>
+  </table>
+  <%= link_to "プロフィールを編集", edit_user_profile_path(@user.id, @profile.id), method: :get %>
+  <% else %>
+  <%= link_to "プロフィールを設定", new_user_profile_path(@user.id) %>
+  <% end %>
+</div>
+
+<div>
+  <%= @user.nickname %>さんの投稿一覧
+  <% @posts.each do |post| %>
+  <div>
+    <%= post.title%>
+    <%= post.author%>
+  </div>
+  <div>
+    <%= post.genre.name%>
+    <%= post.purpose %>
+    <%= post.user.nickname%>
+  </div>
+  <%= link_to "詳細", post_path(post) %>
+  <%= link_to "編集", edit_post_path(post) %>
+  <%= link_to "削除", post_path(post), method: :delete %>
+  <%end%>
+</div>
