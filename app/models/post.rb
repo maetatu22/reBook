@@ -11,8 +11,5 @@ class Post < ApplicationRecord
     validates :purpose
   end
 
-  t.references :category, foreign_key: true
-
-  belongs_to :category
   belongs_to :user
 end
