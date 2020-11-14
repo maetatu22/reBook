@@ -1,0 +1,17 @@
+<% if @results.length !=0 %>
+  <% @results.each do |result| %>
+    <td>
+    <br>
+    <li>
+      <%= result.title %>
+      <%= result.author %>
+      <%= result.content %>
+      <%= result.purpose %>
+      <%= result.genre.name %>
+    </li>
+  <% end %>
+<% else %>
+  該当する商品はありません
+<% end %>
+<br>
+<%= link_to 'トップページへ戻る', root_path %>

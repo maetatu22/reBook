@@ -9,6 +9,26 @@
   
 </header>
 
+<div>
+  <%= search_form_for @p, url: posts_search_path do |f| %>
+    <%= f.label :genre_name_eq, 'ジャンル：' %>
+    <%= f.collection_select :genre_name_eq, @genre_name, :name, :name, include_blank: '指定なし' %>
+    <br>
+    <%= f.label :purpose, '目的：' %>
+    <%= f.radio_button :purpose_eq, '' %>
+    指定なし
+    <%= f.radio_button :purpose_eq, '0' %>
+    レビュー
+    <%= f.radio_button :purpose_eq, '1' %>
+    アウトプット
+    <br>
+    <%= f.label :title_cont, 'タイトル：' %>
+    <%= f.search_field :title_cont, placeholder:'キーワード' %>
+    <br>
+    <%= f.submit '検索' %>
+  <% end %>
+</div>
+
 <div class="content">
   <h2>投稿一覧</h2>
    
