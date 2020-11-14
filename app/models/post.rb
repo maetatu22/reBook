@@ -5,7 +5,7 @@ class Post < ApplicationRecord
     validates :title
     validates :author
     validates :content
-    # validates :genre_id, numericality: { other_than: 1 }
+    validates :genre_id, numericality: { other_than: 1 }
     validates :purpose
   end
 
