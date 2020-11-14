@@ -11,6 +11,5 @@ class Post < ApplicationRecord
     validates :purpose
   end
 
-  belongs_to :category
   belongs_to :user
 end
