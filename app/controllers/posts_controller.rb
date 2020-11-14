@@ -39,13 +39,13 @@ class PostsController < ApplicationController
   end
 
   def search
-    @results = @p.result.includes(:genre)  # 検索条件にマッチした商品の情報を取得
+    @results = @p.result.includes(:genre)
   end
 
   private
 
   def search_post
-    @p = Post.ransack(params[:q])  # 検索オブジェクトを生成
+    @p = Post.ransack(params[:q])
   end
 
   def post_params
