@@ -22,6 +22,9 @@
     <%= f.radio_button :purpose_eq, '1' %>
     アウトプット
     <br>
+    <%= f.label :title_cont, 'タイトル：' %>
+    <%= f.search_field :title_cont %>
+    <br>
     <%= f.submit '検索' %>
   <% end %>
 </div>
