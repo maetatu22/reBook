@@ -9,6 +9,15 @@
   
 </header>
 
+<div>
+  <%= search_form_for @p, url: posts_search_path do |f| %>
+    <%= f.label :name_eq, '商品名' %>
+    <%= f.collection_select :title_eq, @posts, :title, :title,  include_blank: '指定なし' %>
+    <br>
+    <%= f.submit '検索' %>
+  <% end %>
+</div>
+
 <div class="content">
   <h2>投稿一覧</h2>
    

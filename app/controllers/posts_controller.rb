@@ -38,7 +38,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @results = @p.result.includes(:category)  # 検索条件にマッチした商品の情報を取得
+    @results = @p.result.includes(:genre)  # 検索条件にマッチした商品の情報を取得
   end
 
   private
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :author, :genre_id, :content, :purpose).merge(user_id: current_user.id)
+    params.require(:post).permit(:title, :author, :content, :purpose, :genre_id).merge(user_id: current_user.id)
   end
 
   def set_post
