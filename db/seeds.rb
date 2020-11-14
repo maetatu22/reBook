@@ -1,4 +1,4 @@
-Genre.create(name:'---')
+Genre.create(name:'指定なし')
 Genre.create(name:'文学作品')
 Genre.create(name:'エッセー・随筆')
 Genre.create(name:'歴史・時代小説')
