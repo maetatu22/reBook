@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    set_post_column
   end
 
   def new
@@ -53,5 +54,9 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def set_post_column
+    @post_name = Post.select("title").distinct  # 重複なくnameカラムのデータを取り出す
   end
 end
