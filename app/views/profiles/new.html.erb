@@ -1,6 +1,6 @@
 <div>
   <h1>プロフィールを設定しよう</h1>
-  <%= form_with model: @profile, url: user_profiles_path, local: true do |f| %>
+  <%= form_with model: @profile, url: user_profiles_path(@user.id), local: true do |f| %>
 
   <%# 詳細入力 %>
   <div>

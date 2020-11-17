@@ -1,8 +1,8 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:edit, :update]
+  before_action :set_user
 
   def index
-    @user = User.find(params[:user_id])
     @profile = @user.profile
     @posts = @user.posts
   end
@@ -34,10 +34,14 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:profile).permit(:birthday, :gender, :fav_genre1_id, :fav_genre2_id, :fav_genre3_id).merge(user_id: current_user.id)
+    params.require(:profile).permit(:birthday, :gender, :fav_genre1_id, :fav_genre2_id, :fav_genre3_id).merge(user_id: @user.id)
   end
 
   def set_profile
     @profile = Profile.find(params[:id])
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
   end
 end
