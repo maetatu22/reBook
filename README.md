@@ -22,14 +22,14 @@
 | title         | string     | null: false                    |
 | author        | string     | null: false                    |
 | content       | text       | null: false                    |
-| genre_id      | integer    | null: false                    |
 | purpose       | integer    | null: false                    |
 | user          | references | foreign_key: true              |
+| genre         | references | foreign_key: true              |
 
 ### Association
 
 - belongs_to :user
-- belongs_to_active_hash :genre
+- belongs_to :genre
 
 
 ## profiles テーブル
@@ -38,12 +38,24 @@
 | ------------- | ---------- | ------------------------------ |
 | birthday      | date       |                                |
 | gender        | integer    |                                |
-| fav_genre1_id | integer    |                                |
-| fav_genre2_id | integer    |                                |
-| fav_genre3_id | integer    |                                |
+| fav_genre1_id | references | foreign_key: true              |
+| fav_genre2_id | references | foreign_key: true              |
+| fav_genre3_id | references | foreign_key: true              |
 | user          | references | foreign_key: true              |
 
 ### Association
 
 - belongs_to :user
-- belongs_to_active_hash :genre
+- belongs_to :genre
+
+
+##  テーブル
+
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| name          | string     |                                |
+
+### Association
+
+- has_many :posts
+- has_many :profiles
