@@ -33,17 +33,7 @@
     <div class="weight-bold-text">
       好きなジャンル
     </div>
-    <%= f.collection_select(:fav_genre1_id, Genre.all, :id, :name, {}, {class:"fav-text", id:"fav-genre"}) %>
-
-    <div class="weight-bold-text">
-      好きなジャンル
-    </div>
-    <%= f.collection_select(:fav_genre2_id, Genre.all, :id, :name, {}, {class:"fav-text", id:"fav-genre"}) %>
-
-    <div class="weight-bold-text">
-      好きなジャンル
-    </div>
-    <%= f.collection_select(:fav_genre3_id, Genre.all, :id, :name, {}, {class:"fav-text", id:"fav-genre"}) %>
+    <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"fav-text", id:"fav-genre"}) %>
   </div>
   <%# /詳細入力 %>
 

@@ -38,9 +38,7 @@
 | ------------- | ---------- | ------------------------------ |
 | birthday      | date       |                                |
 | gender        | integer    |                                |
-| fav_genre1_id | references | foreign_key: true              |
-| fav_genre2_id | references | foreign_key: true              |
-| fav_genre3_id | references | foreign_key: true              |
+| genre         | references | foreign_key: true              |
 | user          | references | foreign_key: true              |
 
 ### Association

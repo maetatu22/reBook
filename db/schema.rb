@@ -34,12 +34,11 @@ ActiveRecord::Schema.define(version: 2020_11_05_135831) do
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "birthday"
     t.integer "gender"
-    t.integer "fav_genre1_id"
-    t.integer "fav_genre2_id"
-    t.integer "fav_genre3_id"
-    t.bigint "user_id", null: false
+    t.bigint "genre_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["genre_id"], name: "index_profiles_on_genre_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -58,5 +57,6 @@ ActiveRecord::Schema.define(version: 2020_11_05_135831) do
 
   add_foreign_key "posts", "genres"
   add_foreign_key "posts", "users"
+  add_foreign_key "profiles", "genres"
   add_foreign_key "profiles", "users"
 end
